@@ -1,0 +1,1 @@
+# goszakup-gov-kz
