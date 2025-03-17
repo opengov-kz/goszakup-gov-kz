@@ -1,0 +1,68 @@
+import requests
+import pandas as pd
+
+api_url = "https://ows.goszakup.gov.kz/v3/refs/ref_lots_status"
+token = "d5c3d78fc111d88a0a37b4ab8f83cbd5"
+headers = {
+    "Authorization": f"Bearer {token}",
+    "Content-Type": "application/json"
+}
+fetch_params = {"limit": 100}
+file = "lot_statuses.csv"
+
+
+def retrieve_lot_statuses():
+    """Получает статусы лотов через API и формирует удобный список."""
+    status_list = []
+    next_query = None
+
+    while True:
+        try:
+            response = requests.get(api_url, headers=headers, params=fetch_params, timeout=10)
+            response.raise_for_status()
+            response_data = response.json()
+            
+            records = response_data.get("items", [])
+            if not records:
+                print("Все данные загружены.")
+                break
+
+            for record in records:
+                status_list.append({
+                    "ID": record.get("id"),
+                    "Код статуса": record.get("code"),
+                    "(Каз)": record.get("name_kz"),
+                    "(Рус)": record.get("name_ru")
+                })
+            
+            print(f"Загружено {len(status_list)} записей...")
+            next_query = response_data.get("next_page")
+            if not next_query:
+                break
+        
+        except requests.exceptions.RequestException as err:
+            print(f"Ошибка запроса: {err}")
+            break
+    
+    return status_list
+
+
+def export_to_csv(dataset):
+    """Записывает данные в удобный CSV-файл."""
+    if not dataset:
+        print("Нет данных для экспорта.")
+        return
+    
+    data_frame = pd.DataFrame(dataset)
+    data_frame.to_csv(
+        OUTPUT_FILE,
+        index=False,
+        encoding="utf-8-sig",
+        sep="|",
+        quotechar="'",
+        escapechar="\\"
+    )
+    print(f"Данные успешно сохранены в {file}")
+
+lot_status_list = retrieve_lot_statuses()
+export_to_csv(lot_status_list)
