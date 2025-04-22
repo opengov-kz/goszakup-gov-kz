@@ -1,0 +1,103 @@
+1) Реестр участников (default: v3SubjectAll.parquet) - API - https://goszakup.gov.kz/ru/developer/ows_v3#reestr-uchastnikov-reestr-uchastnikov-polnyi-spisok
+    код для загрузки исторических данных: subject_all.py 
+    как запустить: 
+        python subject_all.py --token "your_token_here" --output custom_output.parquet 
+        OR python subject_all.py --token "your_token_here"
+    код для дозагрузки новых данных: subject_all_incremental.py
+    как запустить: 
+        python subject_all_incremental.py --token "your_token_here" --output custom_output.parquet
+        OR subject_all_incremental.py --token "your_token_here"
+2) Реестр недобросовестных поставщиков (default: v3Rnu.parquet) - API - https://goszakup.gov.kz/ru/developer/ows_v3#reestr-nedobrosovestnykh-postavshchikov-reestr-nedobrosovestnykh-postavshchikov
+    код для загрузки исторических данных: v3_rnu.py 
+    как запустить: 
+        python v3_rnu.py --token "your_token_here" --output custom_output.parquet 
+        OR python v3_rnu.py --token "your_token_here"
+    код для дозагрузки новых данных: v3_rnu_incremental.py
+    как запустить: 
+        python v3_rnu_incremental.py --token "your_token_here" --output custom_output.parquet
+        OR python v3_rnu_incremental.py --token "your_token_here" 
+3) Реестр заказчиков (default: v3Plans.parquet) - API - https://goszakup.gov.kz/ru/developer/ows_v3#reestr-godovykh-planov-reestr-zakazchikov
+    код для загрузки исторических данных: v3_plans.py 
+    как запустить: 
+        python v3_plans.py --token "your_token_here" --output custom_output.parquet
+        OR python v3_plans.py --token "your_token_here"
+    код для дозагрузки новых данных: v3_plans_incremental.py
+    как запустить: 
+        python v3_plans_incremental.py --token "your_token_here" --output custom_output.parquet
+        OR python v3_plans_incremental.py --token "your_token_here"
+4) Реестр мест поставки (default: PlnPointsKato.parquet) - GraphQL - https://ows.goszakup.gov.kz/help/v3/schema/plnpointskato.doc.html
+    код для загрузки исторических данных: pln_points_kato.py
+    как запустить: 
+        python pln_points_kato.py --token "your_token_here" --year YOUR_YEAR --output custom_output.parquet
+        OR python pln_points_kato.py --token "your_token_here" --year YOUR_YEAR
+    код для дозагрузки новых данных: pln_points_kato_incremental.py
+    как запустить: 
+        python pln_points_kato_incremental.py --token "your_token_here" --output custom_output.parquet
+        OR python pln_points_kato_incremental.py --token "your_token_here"
+5) Реестр специфик (default: PlnPointsSpec.parquet) - GraphQL - https://ows.goszakup.gov.kz/help/v3/schema/plnpointsspec.doc.html
+    код для загрузки исторических данных: pln_points_spec.py
+    как запустить: 
+        python pln_points_spec.py --token "your_token_here" --year YOUR_YEAR --output custom_output.parquet
+        OR python pln_points_spec.py --token "your_token_here" --year YOUR_YEAR
+    код для дозагрузки новых данных: pln_points_spec_incremental.py
+    как запустить: 
+        python pln_points_spec_incremental.py --token "your_token_here" --output custom_output.parquet
+        OR python pln_points_spec_incremental.py --token "your_token_here"
+6) Список снятых с публикаций пунктов плана (default: v2PlansDeleted.parquet) - API - https://goszakup.gov.kz/ru/developer/ows_v3#reestr-godovykh-planov-spisok-sniatykh-s-publikatsii-punktov-plana
+    код для загрузки исторических данных: v2_plans_deleted.py
+    как запустить: 
+        python v2_plans_deleted.py --token "your_token_here" --output custom_output.parquet
+        OR python v2_plans_deleted.py --token "your_token_here"
+    код для дозагрузки новых данных: v2_plans_deleted_incremental.py
+    как запустить: 
+        python v2_plans_deleted_incremental.py --token "your_token_here" --output custom_output.parquet
+        OR python v2_plans_deleted_incremental.py --token "your_token_here"
+7) Получение полного списка объявлений (default: TrdBuy.parquet) - GraphQL - https://ows.goszakup.gov.kz/help/v3/schema/trdbuy.doc.html
+    код для загрузки исторических данных: trd_buy.py
+    как запустить: 
+        python trd_buy.py --token "your_token_here" --year YOUR_YEAR --output custom_output.parquet
+        OR python trd_buy.py --token "your_token_here" --year YOUR_YEAR
+    код для дозагрузки новых данных: trd_buy_incremental.py
+    как запустить: 
+        python trd_buy_incremental.py --token "your_token_here" --output custom_output.parquet
+        OR python trd_buy_incremental.py --token "your_token_here" 
+
+8) Получение списка заявок поставщиков - GraphQL
+	8.1) Получение списка заявок поставщиков (default: TrdApp.parquet) - https://ows.goszakup.gov.kz/help/v3/schema/trdapp.doc.html
+	8.2) У TrdApp вложенный Список лотов, прикрепленных к заявке поставщика (default: TrdAppLots.parquet) - https://ows.goszakup.gov.kz/help/v3/schema/trdapplots.doc.html
+	8.3) А у TrdAppLots вложенный Ценовые предложения поставщиков по пунктам плана лота (default: TrdAppPriceOfferPoint.parquet) - https://ows.goszakup.gov.kz/help/v3/schema/trdpriceofferpoint.doc.html
+    код для загрузки исторических данных: trd_app.py
+    как запустить: 
+        python trd_app.py --token "your_token_here" --year YOUR_YEAR --output-prefix custom_output
+        OR python trd_app.py --token "your_token_here" --year YOUR_YEAR
+    код для дозагрузки новых данных: trd_app_incremental.py
+    как запустить: 
+        python trd_app_incremental.py --token "your_token_here" --output-prefix custom_output
+        OR python trd_app_incremental.py --token "your_token_here"
+9) Реестр лотов (default: Lots.parquet) - GraphQL -https://ows.goszakup.gov.kz/help/v3/schema/lots.doc.html
+    код для загрузки исторических данных: lots.py
+    как запустить: 
+        python lots.py --token "your_token_here" --year YOUR_YEAR --output-prefix custom_output
+        OR python lots.py --token "your_token_here" --year YOUR_YEAR
+    код для дозагрузки новых данных: lots_incremental.py
+    как запустить: 
+        python lots_incremental.py --token "your_token_here" --output-prefix custom_output
+        OR python lots_incremental.py --token "your_token_here"
+10) Реестр электронных актов (default: ContractAct.parquet) - GraphQL - https://ows.goszakup.gov.kz/help/v3/schema/contractact.doc.html
+    код для загрузки исторических данных: contract_act.py
+    как запустить: 
+        python contract_act.py --token "your_token_here" --year YOUR_YEAR --output-prefix custom_output
+        OR python contract_act.py --token "your_token_here" --year YOUR_YEAR
+    код для дозагрузки новых данных: lots_incremental.py
+    как запустить: 
+        python contract_act_incremental.py --token "your_token_here" --output-prefix custom_output
+        OR python contract_act_incremental.py --token "your_token_here"
+11) Получение полного списка платежей (default: TreasuryPay.parquet) - GraphQL - https://ows.goszakup.gov.kz/help/v3/schema/treasurypay.doc.html
+    код для загрузки исторических данных: treasury_pay.py
+    как запустить: 
+        python treasury_pay.py --token "your_token_here" --year YOUR_YEAR --output-prefix custom
+        OR python treasury_pay.py --token "your_token_here" --year YOUR_YEAR
+    код для дозагрузки новых данных: treasury_pay_incremental.py
+    как запустить: 
+        python treasury_pay_incremental.py --token "your_token_here" --output-prefix custom_output
+        OR python python treasury_pay_incremental.py --token "your_token_here"
