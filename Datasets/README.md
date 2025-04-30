@@ -1,4 +1,4 @@
-ссылка на папку: https://drive.google.com/file/d/1TPwkup0eItDup6defmTPl1fvRSCB848i/view?usp=sharing 
+ссылка на папку c датасетами: https://drive.google.com/file/d/1TPwkup0eItDup6defmTPl1fvRSCB848i/view?usp=sharing 
 
 1) Реестр участников - "\qbs_gd\v3SubjectAll.parquet" - API - https://goszakup.gov.kz/ru/developer/ows_v3#reestr-uchastnikov-reestr-uchastnikov-polnyi-spisok
 2) Реестр недобросовестных поставщиков - "\qbs_gd\v3Rnu.parquet" - API - https://goszakup.gov.kz/ru/developer/ows_v3#reestr-nedobrosovestnykh-postavshchikov-reestr-nedobrosovestnykh-postavshchikov
