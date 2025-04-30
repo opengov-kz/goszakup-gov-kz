@@ -16,3 +16,5 @@
 9) Реестр лотов - "\qbs_gd\Lots.parquet" - GraphQL -https://ows.goszakup.gov.kz/help/v3/schema/lots.doc.html
 10) Реестр электронных актов - "\qbs_gd\ContractAct.parquet" - GraphQL - https://ows.goszakup.gov.kz/help/v3/schema/contractact.doc.html
 11) Получение полного списка платежей - "\qbs_gd\TreasuryPay.parquet" - GraphQL - https://ows.goszakup.gov.kz/help/v3/schema/treasurypay.doc.html
+
+ссылка на файлы справочников: https://drive.google.com/drive/folders/10R-lJrIl80e8zriEaAKm62zq4nF0qlVK?usp=sharing
