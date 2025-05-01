@@ -18,3 +18,5 @@
 11) Получение полного списка платежей - "\qbs_gd\TreasuryPay.parquet" - GraphQL - https://ows.goszakup.gov.kz/help/v3/schema/treasurypay.doc.html
 
 ссылка на файлы справочников: https://drive.google.com/drive/folders/10R-lJrIl80e8zriEaAKm62zq4nF0qlVK?usp=sharing
+
+ссылка на PowerBI: https://drive.google.com/file/d/1TqidhMxx1prjqWC2INmVfwMMXOILoort/view?usp=sharing
